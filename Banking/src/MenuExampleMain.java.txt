@@ -1,0 +1,56 @@
+// If you use this code you need to acknowledge it - otherwise its plagiarism!
+
+
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+
+public class MenuExampleMain {
+
+public static void main(String[] args) {
+	
+	int option = printMenu(new String[] {
+			"bla", "foo", "wibble", "wotzit"
+	});
+	
+	
+	int option1 = printMenu(new String[] {
+			"bla", "sdfs sdf sdf sd f", "wibble", "wotzit"
+	});
+	
+	int option2 = printMenu(new String[] {
+			"bla", "sdfsdf", "wotzit"
+	});
+	
+	
+}
+
+private static int printMenu(String[] options) {
+	for (int i = 0; i < options.length; i++) {
+		System.out.println((i+1)+ ".\t"+ options[i]);
+	}
+	int l = options.length;
+	Scanner sc = new Scanner(System.in);
+	System.out.println("Enter a number 1-"+l+":");
+	int response;	
+	try {
+		response = sc.nextInt();
+	} catch (InputMismatchException e) {
+		response = -1;
+	}
+	sc.nextLine();
+	
+	while (response < 1 || response > l) {
+		System.out.println("You MUST enter a number 1-"+l+":");
+		try {
+			response = sc.nextInt();
+		} catch (InputMismatchException e) {
+			response = -1;
+		}
+		sc.nextLine();
+	}
+	System.out.println("Thank you, you entered " + response);
+	return response;
+}
+	
+}

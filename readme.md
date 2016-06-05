@@ -1,0 +1,1 @@
+Various half-written Java projects, written during seminars etc. as an aid to teaching.
